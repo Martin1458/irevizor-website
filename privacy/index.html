@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iRevizor: zásady ochrany osobních údajů</title>
+<meta name="description" content="Jaké osobní údaje aplikace iRevizor zpracovává, proč, jak dlouho a jaká máš práva.">
+<link rel="icon" href="../favicon.png">
+<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#0A0A0A">
+</head>
+<body>
+
+<header class="slim">
+  <div class="wrap">
+    <div class="brand">
+      <img src="../icon.png" alt="iRevizor">
+      <h1>Zásady ochrany osobních údajů</h1>
+    </div>
+    <a class="back" href="/">Zpět na podporu</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <p class="meta"><strong>Účinné od:</strong> 11.10.2026 &middot; <strong>Verze:</strong> 1.0</p>
+  </section>
+
+  <section>
+    <h2>1. Kdo zpracovává tvoje údaje</h2>
+    <p>Správcem osobních údajů je:</p>
+    <ul>
+      <li><strong>Jméno:</strong> Martin Trasak</li>
+      <li><strong>E-mail:</strong> <a href="mailto:martintrasak@gmail.com">martintrasak@gmail.com</a></li>
+    </ul>
+    <p>Aplikace <strong>iRevizor</strong> (dále „aplikace") slouží k hlášení a zobrazení
+      výskytu revizorů v pražské veřejné dopravě. Tyto zásady vysvětlují, jaké údaje
+      aplikace zpracovává a proč.</p>
+  </section>
+
+  <section>
+    <h2>2. Co aplikace nezpracovává</h2>
+    <p>Protože je to pro tuto aplikaci podstatné, začínáme tím, co <strong>nesbíráme</strong>:</p>
+    <ul>
+      <li><strong>Žádné fotografie.</strong> Aplikace neumí nahrát ani odeslat obrázek.</li>
+      <li><strong>Žádný volný text.</strong> Není kam napsat poznámku ani popis.</li>
+      <li><strong>Žádné údaje o revizorech.</strong> Hlášení říká pouze to, že na zastávce
+        nebo v lince někdo kontroloval jízdenky. Neobsahuje jméno, popis vzhledu,
+        oblečení, fotografii ani jakýkoli jiný údaj, podle kterého by šlo konkrétního
+        člověka poznat.</li>
+      <li><strong>Žádné analytické, reklamní ani sledovací nástroje.</strong> Aplikace
+        neobsahuje žádnou knihovnu pro měření chování ani reklamu a nesleduje tě napříč
+        aplikacemi ani weby.</li>
+      <li><strong>Žádný prodej údajů.</strong> Tvoje údaje neprodáváme a nepředáváme je
+        inzerentům.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. Jaké údaje zpracováváme</h2>
+
+    <h4>3.1 Účet</h4>
+    <p>Při přihlášení přes Google, Apple nebo e-mailem získáme:</p>
+    <ul>
+      <li><strong>e-mailovou adresu</strong>,</li>
+      <li><strong>identifikátor účtu</strong> (ID přidělené službou Firebase Authentication).</li>
+    </ul>
+    <p>Pokud se přihlásíš přes Apple a zvolíš „Skrýt můj e-mail", dostaneme pouze
+      přesměrovací adresu Apple, ne tvůj skutečný e-mail.</p>
+    <p>Přihlášení e-mailem a heslem slouží k testování aplikace a nelze si jím účet
+      založit. Běžné účty vznikají jen přes Google nebo Apple.</p>
+
+    <h4>3.2 Poloha</h4>
+    <p>Aplikace si vyžádá přístup k poloze, <strong>jen když ji používáš</strong> (nikdy
+      na pozadí). Polohu používáme k určení nejbližší zastávky a jako součást hlášení.
+      Přístup k poloze můžeš odmítnout. Pak si zastávku vybereš ručně a aplikace
+      funguje dál.</p>
+
+    <h4>3.3 Hlášení</h4>
+    <p>Odeslané hlášení obsahuje přesně těchto devět údajů:</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Údaj</th><th>Význam</th></tr></thead>
+        <tbody>
+          <tr><td><code>createdAt</code></td><td>čas vytvoření na serveru</td></tr>
+          <tr><td><code>expiresAt</code></td><td>čas, kdy hlášení přestává platit</td></tr>
+          <tr><td><code>locationType</code></td><td>zastávka, nebo vozidlo</td></tr>
+          <tr><td><code>hasInspector</code></td><td>zda byl revizor viděn, nebo potvrzeně nebyl</td></tr>
+          <tr><td><code>lineId</code></td><td>linka (jen u hlášení z vozidla)</td></tr>
+          <tr><td><code>direction</code></td><td>směr jízdy (jen u hlášení z vozidla)</td></tr>
+          <tr><td><code>stopId</code></td><td>zastávka</td></tr>
+          <tr><td><code>lat</code>, <code>lng</code></td><td>souřadnice místa hlášení</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Hlášení neobsahuje identifikátor tvého účtu.</strong> Po odeslání už není
+      technicky možné zjistit, kdo konkrétní hlášení vytvořil, a to ani pro nás. To je
+      záměrné: hlášení musí být čitelné pro mapu, aniž by prozradilo, kdo kde byl.</p>
+
+    <h4>3.4 Údaje uložené jen ve tvém telefonu</h4>
+    <p>Tyto údaje neopouštějí zařízení a neposíláme je nikam:</p>
+    <ul>
+      <li>fronta hlášení čekajících na odeslání,</li>
+      <li>čas posledního odeslaného hlášení,</li>
+      <li>stažená referenční data PID (zastávky, linky, trasy).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. Proč údaje zpracováváme a na jakém právním základě</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Účel</th><th>Údaje</th><th>Právní základ (GDPR)</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Přihlášení a vedení účtu</td>
+            <td>e-mail, identifikátor účtu</td>
+            <td>čl. 6 odst. 1 písm. b): plnění smlouvy</td>
+          </tr>
+          <tr>
+            <td>Vytvoření a zobrazení hlášení</td>
+            <td>poloha, obsah hlášení</td>
+            <td>čl. 6 odst. 1 písm. b): plnění smlouvy</td>
+          </tr>
+          <tr>
+            <td>Ochrana před zneužitím a zahlcením služby</td>
+            <td>identifikátor účtu, technické údaje požadavku</td>
+            <td>čl. 6 odst. 1 písm. f): oprávněný zájem</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>5. Jak dlouho údaje uchováváme</h2>
+    <ul>
+      <li><strong>Hlášení z vozidla: 15 minut.</strong> Po této době přestává platit.</li>
+      <li><strong>Hlášení ze zastávky: 60 minut.</strong> Po této době přestává platit.</li>
+      <li>Neplatná hlášení se už nikde nezobrazují. Technické mazání z databáze provádí
+        Google Cloud Firestore podle své zásady TTL, obvykle <strong>do 24 hodin</strong>
+        po expiraci.</li>
+      <li><strong>Údaje účtu</strong> uchováváme, dokud účet nesmažeš.</li>
+      <li>Údaje ve tvém telefonu zmizí smazáním účtu nebo odinstalováním aplikace.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Komu údaje předáváme</h2>
+    <p>Nepředáváme je nikomu kromě poskytovatelů, kteří pro nás službu technicky
+      provozují (zpracovatelé):</p>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Poskytovatel</th><th>Co pro nás dělá</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Google Ireland Limited / Google LLC</td>
+            <td>Firebase Authentication (přihlášení), Cloud Firestore (databáze hlášení),
+              Google Maps (mapa), Google Sign-In</td>
+          </tr>
+          <tr>
+            <td>Apple Inc.</td>
+            <td>Sign in with Apple (přihlášení)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Přenos do třetích zemí:</strong> tito poskytovatelé mohou údaje zpracovávat
+      i mimo Evropský hospodářský prostor, zejména ve Spojených státech. Přenos se opírá
+      o standardní smluvní klauzule schválené Evropskou komisí, případně o další záruky
+      podle kapitoly V GDPR. Region, ve kterém je databáze umístěna: Evropa.</p>
+  </section>
+
+  <section>
+    <h2>7. Tvoje práva</h2>
+    <p>Podle GDPR máš právo:</p>
+    <ul>
+      <li>na <strong>přístup</strong> ke svým údajům,</li>
+      <li>na <strong>opravu</strong> nesprávných údajů,</li>
+      <li>na <strong>výmaz</strong> („právo být zapomenut"),</li>
+      <li>na <strong>omezení zpracování</strong>,</li>
+      <li>na <strong>přenositelnost</strong> údajů,</li>
+      <li><strong>vznést námitku</strong> proti zpracování založenému na oprávněném zájmu.</li>
+    </ul>
+    <p>Práva uplatníš na adrese
+      <a href="mailto:martintrasak@gmail.com">martintrasak@gmail.com</a>.
+      Odpovíme nejpozději do jednoho měsíce.</p>
+    <p><strong>Výmaz účtu zvládneš sám:</strong> v aplikaci otevři účet (kolečko vpravo
+      nahoře na úvodní obrazovce) a zvol <strong>Smazat účet</strong>. Smaže se účet,
+      přihlášení i hlášení uložená v telefonu. Pokud používáš Sign in with Apple,
+      zneplatníme zároveň i token u Apple.</p>
+    <p>Už odeslaná hlášení smazat nelze, protože nejsou k tvému účtu nijak připojená
+      a nejde určit, která byla tvoje. Sama ale přestanou platit nejpozději za hodinu.</p>
+    <p><strong>Stížnost:</strong> pokud máš za to, že zpracováváme tvoje údaje v rozporu
+      s předpisy, můžeš se obrátit na Úřad pro ochranu osobních údajů, Pplk. Sochora 27,
+      170 00 Praha 7, <a href="https://uoou.gov.cz">uoou.gov.cz</a>.</p>
+  </section>
+
+  <section>
+    <h2>8. Zabezpečení</h2>
+    <p>Přístup k hlášením a referenčním datům mají jen přihlášení uživatelé. Pravidla
+      databáze dovolují hlášení pouze vytvořit. Nikdo, ani autor, je nemůže změnit ani
+      smazat. Hlášení neobsahují identifikátor účtu. Komunikace probíhá šifrovaně
+      (HTTPS).</p>
+  </section>
+
+  <section>
+    <h2>9. Děti</h2>
+    <p>Aplikace není určena dětem mladším 15 let a záměrně od nich údaje nesbíráme.</p>
+  </section>
+
+  <section>
+    <h2>10. Změny těchto zásad</h2>
+    <p>Pokud zásady změníme, zveřejníme novou verzi na této adrese a upravíme datum
+      účinnosti. U podstatných změn tě upozorníme v aplikaci.</p>
+  </section>
+
+  <section>
+    <h2>11. Kontakt</h2>
+    <p>Martin Trasak<br>
+      <a href="mailto:martintrasak@gmail.com">martintrasak@gmail.com</a></p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p><a href="/">Podpora</a> &middot; <a href="/terms">Podmínky používání</a></p>
+  <p>iRevizor, aplikace pro iOS a Android. Čeština, Praha.</p>
+</footer>
+
+</body>
+</html>
